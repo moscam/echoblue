@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'eb_v001a1'
+    'eb_v001a1',
+    'foundation'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,7 +84,16 @@ DATABASES = {
         'PASSWORD': 'ebUsr1',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-    }
+    }#,
+
+    #'users_testing': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'userstest',
+    #    'USER': 'ebusr',
+    #    'PASSWORD': 'ebUsr1',
+    #    'HOST': '127.0.0.1',
+    #    'PORT': '5432',
+    #}
 }
 
 # Internationalization
