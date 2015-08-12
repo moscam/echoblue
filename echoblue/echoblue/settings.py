@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'echoblue.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'echobluetest',
-        'USER': 'ebusr',
-        'PASSWORD': 'ebUsr1',
+        'NAME': 'ebtest',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }#,
@@ -114,3 +114,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+)
+
+# Media files
+
+MEDIA_ROOT = '/eb_v001a1/media/'
+MEDIA_URL = '/media/'
+
+# LOGIN and LOGOUT URLs
+
+LOGIN_URL = '/echoblue/login/'
+LOGOUT_URL = '/echoblue/'

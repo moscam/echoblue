@@ -1,0 +1,442 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="{% static 'eb_v001a1/css/foundation.css' %}" />
+    <script src="{% static 'eb_v001a1/js/vendor/modernizr.js' %}"></script>
+  </head>
+  <body>
+
+<!-- Nav bar content start -->
+
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/echoblue/">echo<font color="#ADD8E6">blue</font></a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-form">
+        <div class="row collapse">
+            <div class="large-8 small-9 columns">
+                <input type="text" placeholder="Search people">
+            </div>
+            <div class="large-4 small-3 columns">
+                <a href="#" class="button expand">Search</a>
+            </div>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">{{request.user.username}}</a>
+        <ul class="dropdown">
+          <li class="active"><a href="/echoblue/user/profile/">User profile</a></li>
+          <li><a href="/echoblue/user/admin/create/">Create objects</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="has-dropdown">
+          <a href="#">Updates</a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+
+<!-- Nav bar content end -->
+
+<div class="row full-width">
+
+<!--Left section nav -->
+    <div class="large-2 columns structure-div">
+        <div class="icon-bar vertical six-up label-right" id="dashboard-nav">
+            <a class="item" href="/echoblue/dashboard/">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-graph-trend.svg" %}" alt="dashboard"/>
+                <label>Home</label>
+            </a>
+            <a class="item">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-universal-access.svg" %}" alt="student 360"/>
+                <label>Student 360&deg;</label>
+            </a>
+            <a class="item">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-home.svg" %}" alt="housing"/>
+                <label>Housing</label>
+            </a>
+            <a class="item">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-star.svg" %}" alt="discipline"/>
+                <label>Discipline</label>
+            </a>
+            <a class="item">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-graph-pie.svg" %}" alt="analytics"/>
+                <label>Analytics</label>
+            </a>
+            <a class="item" href="/echoblue/logout/">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-lock.svg" %}" alt="logout"/>
+                <label>Logout</label>
+            </a>
+        </div>
+    </div>
+<!-- End left nav -->
+
+<!-- Alert space -->
+    <div class="large-10 columns">
+        <div data-alert class="alert-box alert">
+            This is a development build of the echoblue platform
+            <a href="#" class="close">&times;</a>
+        </div>
+    </div>
+
+<!-- End alert space -->
+
+<!-- User overview space -->
+    <div class="large-10 columns">
+        <div class="large-12 columns">
+            <div class="row" data-equalizer>
+                <div class="large-2 columns panel" data-equalizer-watch>
+                        Image
+                </div>
+                <div class="large-10 columns" data-equalizer-watch>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <h2>{{request.user.first_name}} {{request.user.last_name}}</h1>
+                        </div>
+                    </div>
+                   <div class="row">
+                        <div class="large-12 columns">
+                            <h5>Administrator</h5>
+                        </div>
+                   </div>
+                   <div class="row">
+                        <div class="large-12 columns">
+                            <h5>College of Arts and Sciences</h5>
+                        </div>
+                   </div>
+                   <div class="row">
+                        <div class="large-12 columns">
+                            <h5>Boston University</h5>
+                        </div>
+                   </div>
+                </div>
+
+                <div class="large-pull-0 columns">
+                    <a href="#" class="button round">
+                    Edit Profile
+                    </a>
+                </div>
+
+                <div class="large-pull-0 columns">
+                    <button data-dropdown="drop" aria-controls="drop" aria-expanded="false" class="small round button dropdown">Collaborate!</button><br>
+                        <ul id="drop" data-dropdown-content class="f-dropdown" role="menu" aria-hidden="false" tabindex="-1">
+                          <li><a href="#">This is a link</a></li>
+                          <li><a href="#">This is another</a></li>
+                          <li><a href="#">Yet another</a></li>
+                        </ul>
+                </div>
+            </div>
+ <!--End user overview -->
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- MAIN CONTENT HERE -->
+<div class="row full-width">
+
+    <div class="large-2 columns">
+
+    </div>
+    <div class="large-10 columns">
+        <div class="large-12 columns">
+            <div class="row">
+                <div class="large-10 large-push-1 columns">
+                    <h5>User data grid</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-10 large-push-1 columns">
+                <ul class="tabs" data-tab role="tablist">
+                    <li class="tab-title active" role="presentation"><a href="#panel2-1" role="tab" tabindex="0" aria-selected="true" aria-controls="panel2-1">On-campus</a></li>
+                    <li class="tab-title" role="presentation"><a href="#panel2-2" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-2">Off-campus</a></li>
+                    <li class="tab-title" role="presentation"><a href="#panel2-3" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-3">Emergency</a></li>
+                </ul>
+                <div class="tabs-content">
+                    <section role="tabpanel" aria-hidden="false" class="content active" id="panel2-1">
+                        <div class="row">
+                            <div class="large-6 columns">
+
+                                <table>
+                                    <thead>
+                                        <th width="100"></th>
+                                        <th width="200"></th>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td><b>Student ID:</b></td>
+                                            <td>UNK01020304</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Network ID:</b></td>
+                                            <td>moscam</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Major:</b></td>
+                                            <td>Philosophy</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Minor:</b></td>
+                                            <td>None</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Advisor:</b></td>
+                                            <td>Jane Smith</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="large-6 columns">
+
+                                <table>
+                                    <thead>
+                                        <th width="100"></th>
+                                        <th width="200"></th>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td><b>Phone:</b></td>
+                                            <td>+1 617 671 5189</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Email:</b></td>
+                                            <td>moscam@unk.edu</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Building:</b></td>
+                                            <td>Some Hall</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Room:</b></td>
+                                            <td>31</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Mailbox</b></td>
+                                            <td>SH-2311</td>
+                                        </tr>
+
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section role="tabpanel" aria-hidden="true" class="content" id="panel2-2">
+                        <div class="row">
+                            <div class="large-6 columns">
+
+                                <table>
+                                    <thead>
+                                        <th width="100"></th>
+                                        <th width="200"></th>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td><b>Street:</b></td>
+                                            <td>21 Glade Ave</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Street (2):</b></td>
+                                            <td>Apt 3</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Postcode:</b></td>
+                                            <td>02130</td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="large-6 columns">
+
+                                <table>
+                                    <thead>
+                                        <th width="100"></th>
+                                        <th width="200"></th>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td><b>City:</b></td>
+                                            <td>Boston</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Region:</b></td>
+                                            <td>Massachusetts</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Country:</b></td>
+                                            <td>United States of America</td>
+                                        </tr>
+
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </section>
+                    <section role="tabpanel" aria-hidden="true" class="content" id="panel2-3">
+                        <div class="row">
+                            <div class="large-6 columns">
+
+                                <table>
+                                    <thead>
+                                        <th width="100"></th>
+                                        <th width="200">Emergency contact #1</th>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td><b>Name:</b></td>
+                                            <td>Teresa Mosca</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Relation:</b></td>
+                                            <td>Mother</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Phone:</b></td>
+                                            <td>+1 603 566 8156</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Country:</b></td>
+                                            <td>United States of America</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>City:</b></td>
+                                            <td>Hudson</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Region:</b></td>
+                                            <td>New Hampshire</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Last verified:</b></td>
+                                            <td>July 1, 2015</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="large-6 columns">
+
+                                <table>
+                                    <thead>
+                                        <th width="100"></th>
+                                        <th width="200">Emergency contact #1</th>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td><b>Name:</b></td>
+                                            <td>Teresa Mosca</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Relation:</b></td>
+                                            <td>Mother</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Phone:</b></td>
+                                            <td>+1 603 566 8156</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Country:</b></td>
+                                            <td>United States of America</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>City:</b></td>
+                                            <td>Hudson</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Region:</b></td>
+                                            <td>New Hampshire</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>Last verified:</b></td>
+                                            <td>July 1, 2015</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </section>
+                    <section role="tabpanel" aria-hidden="true" class="content" id="panel2-4">
+                        <h2>Fourth panel content goes here...</h2>
+                    </section>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- End Main content -->
+
+
+    <script src="{% static 'eb_v001a1/js/vendor/jquery.js' %}"></script>
+    <script src="{% static 'eb_v001a1/js/foundation.min.js' %}"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

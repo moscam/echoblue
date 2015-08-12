@@ -1,0 +1,88 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="{% static 'eb_v001a1/css/foundation.css' %}" />
+    <script src="{% static 'eb_v001a1/js/vendor/modernizr.js' %}"></script>
+  </head>
+  <body>
+
+
+<section class="hero">
+  <div class="row intro">
+    <div class="small-centered medium-uncentered medium-6 large-12 columns">
+      <h1>Student-first. Always.</h1>
+      <p>Echo<font color="#ADD8E6">blue</font> is the first digital-native solution designed from the ground-up to give administrators a 360&deg;
+          view of their students</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large 4-columns" id="index-nav">
+        <div class="icon-bar three-up">
+          {% if user.is_authenticated %}
+          <a class="item" href="dashboard/">
+          {% else %}
+          <a class="item" data-reveal-id="loginModal">
+          {% endif %}
+            <img src="{% static "eb_v001a1/img/icons/svgs/fi-graph-trend.svg" %}" alt="dashboard"/>
+            <label>Home</label>
+          </a>
+          <a class="item">
+            <img src="{% static "eb_v001a1/img/icons/svgs/fi-info.svg" %}" alt="info"/>
+            <label>Info</label>
+          </a>
+          <a class="item" href="logout/">
+            <img src="{% static "eb_v001a1/img/icons/svgs/fi-key.svg" %}" alt="logout"/>
+            <label>Logout</label>
+          </a>
+        </div>
+    </div>
+  </div>
+
+  <div id="loginModal" class="reveal-modal tiny" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+      <form id="login_form" method="post" action="/echoblue/login/">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="large-12 columns">
+                <label>Username
+                    <input type="text" name="username" placeholder="Please enter your username" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <label>Password
+                    <input type="password" name="password" placeholder="Please enter your password" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-4 columns">
+                <input type="submit" class="button" value="Submit" />
+            </div>
+        </div>
+
+      </form>
+  </div>
+
+</section>
+<!-- MAIN CONTENT HERE -->
+
+
+
+
+
+
+    <script src="{% static 'eb_v001a1/js/vendor/jquery.js' %}"></script>
+    <script src="{% static 'eb_v001a1/js/foundation.min.js' %}"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

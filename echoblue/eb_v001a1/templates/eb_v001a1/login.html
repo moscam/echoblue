@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="{% static 'eb_v001a1/css/foundation.css' %}" />
+    <script src="{% static 'eb_v001a1/js/vendor/modernizr.js' %}"></script>
+  </head>
+  <body>
+
+
+
+<form id="login_form" method="post" action="/echoblue/login/">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Username
+                <input type="text" name="username" placeholder="Please enter your username" />
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Password
+                <input type="password" name="password" placeholder="Please enter your password" />
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-4 columns">
+            <input type="submit" class="button" value="Submit" />
+        </div>
+    </div>
+
+</form>
+
+
+
+
+    <script src="{% static 'eb_v001a1/js/vendor/jquery.js' %}"></script>
+    <script src="{% static 'eb_v001a1/js/foundation.min.js' %}"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

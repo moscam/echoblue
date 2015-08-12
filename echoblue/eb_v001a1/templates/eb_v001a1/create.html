@@ -1,0 +1,158 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="{% static 'eb_v001a1/css/foundation.css' %}" />
+    <script src="{% static 'eb_v001a1/js/vendor/modernizr.js' %}"></script>
+  </head>
+<body>
+
+<!-- Nav bar content start -->
+
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/echoblue/">echo<font color="#ADD8E6">blue</font></a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-form">
+        <div class="row collapse">
+            <div class="large-8 small-9 columns">
+                <input type="text" placeholder="Search people">
+            </div>
+            <div class="large-4 small-3 columns">
+                <a href="#" class="button expand">Search</a>
+            </div>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">{{request.user.username}}</a>
+        <ul class="dropdown">
+          <li class="active"><a href="/echoblue/user/profile/">User profile</a></li>
+          <li><a href="/echoblue/user/admin/create/">Create objects</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="has-dropdown">
+          <a href="#">Updates</a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+
+<!-- Nav bar content end -->
+
+<div class="row full-width">
+
+<!--Left section nav -->
+    <div class="large-2 columns structure-div">
+        <div class="icon-bar vertical six-up label-right" id="dashboard-nav">
+            <a class="item" href="/echoblue/dashboard/">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-graph-trend.svg" %}" alt="dashboard"/>
+                <label>Home</label>
+            </a>
+            <a class="item">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-universal-access.svg" %}" alt="student 360"/>
+                <label>Student 360&deg;</label>
+            </a>
+            <a class="item">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-home.svg" %}" alt="housing"/>
+                <label>Housing</label>
+            </a>
+            <a class="item">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-star.svg" %}" alt="discipline"/>
+                <label>Discipline</label>
+            </a>
+            <a class="item">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-graph-pie.svg" %}" alt="analytics"/>
+                <label>Analytics</label>
+            </a>
+            <a class="item" href="/echoblue/logout/">
+                <img src="{% static "eb_v001a1/img/icons/svgs/fi-lock.svg" %}" alt="logout"/>
+                <label>Logout</label>
+            </a>
+        </div>
+    </div>
+<!-- End left nav -->
+
+<!-- Alert space -->
+    <div class="large-10 columns">
+        <div data-alert class="alert-box alert">
+            This is a development build of the echoblue platform
+            <a href="#" class="close">&times;</a>
+        </div>
+    </div>
+
+<!-- End alert space -->
+<!-- Start main content -->
+    <div class="large-10 columns">
+        <ul class="inline-list">
+            <li><a href="/echoblue/user/admin/create/create-user/">Users</a></li>
+            <li><a href="#">Students</a></li>
+            <li><a href="#">Organizations</a></li>
+            <li><a href="#">Buildings</a></li>
+        </ul>
+    </div>
+
+    <div class="large-10 columns">
+
+        <div class="row">
+            <div class="large-12 columns">
+
+                <div class="large-6 columns">
+                    <div class="panel">
+                        <h1>Users</h1>
+                        <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                    </div>
+                </div>
+                <div class="large-6 columns">
+                    <div class="panel">
+                        <h1>Students</h1>
+                        <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                    </div>
+                </div>
+
+                <div class="large-6 columns">
+                    <div class="panel">
+                        <h1>Organizations</h1>
+                        <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                    </div>
+                </div>
+                <div class="large-6 columns">
+                    <div class="panel">
+                        <h1>Buildings</h1>
+                        <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    
+
+<!-- End Main content -->
+</div>
+
+    <script src="{% static 'eb_v001a1/js/vendor/jquery.js' %}"></script>
+    <script src="{% static 'eb_v001a1/js/foundation.min.js' %}"></script>
+    <script>
+      $(document).foundation();
+    </script>
+</body>
+</html>

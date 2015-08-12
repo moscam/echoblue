@@ -398,10 +398,27 @@ class Building_room(models.Model):
         return '%s' % self.room_id
 
 
+class Userextn_user(models.Model):
+    YES = '1'
+    NO = '0'
+
+    USEREXTN_USER_ISTESTDATA_CHOICES = (
+        (YES, 'Yes'),
+        (NO, 'No')
+    )
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    user = models.OneToOneField(User)
+    dt_created = models.DateTimeField(auto_now_add=True)
+    dt_edited = models.DateTimeField(auto_now=True)
+    istestdata = models.CharField(max_length=1, choices=USEREXTN_USER_ISTESTDATA_CHOICES, null=True, default=YES)
+    #user_firstname =
+
+
 class Userextn_admin(models.Model):
 
-    YES = 1
-    NO = 0
+    YES = '1'
+    NO = '0'
 
     USEREXTN_ADMIN_ISTESTDATA_CHOICES = (
         (YES, 'Yes'),
@@ -412,4 +429,24 @@ class Userextn_admin(models.Model):
     user = models.OneToOneField(User)
     dt_created = models.DateTimeField(auto_now_add=True)
     dt_edited = models.DateTimeField(auto_now=True)
-    istestdata = models.CharField(max_length=1, choices=USEREXTN_ADMIN_ISTESTDATA_CHOICES, default=YES, null=True)
+    istestdata = models.CharField(max_length=1, choices=USEREXTN_ADMIN_ISTESTDATA_CHOICES, null=True, default=YES)
+
+    def __unicode__(self):
+        return '%s' % self.user
+
+class userextn_photos(models.Model):
+
+    YES = '1'
+    NO = '0'
+
+    USEREXTN_ADMIN_ISTESTDATA_CHOICES = (
+        (YES, 'Yes'),
+        (NO, 'No')
+    )
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    user = models.OneToOneField(User)
+    dt_created = models.DateTimeField(auto_now_add=True)
+    dt_edited = models.DateTimeField(auto_now=True)
+    istestdata = models.CharField(max_length=1, choices=USEREXTN_ADMIN_ISTESTDATA_CHOICES, null=True, default=YES)
+    user_img = models.ImageField(upload_to='users')
